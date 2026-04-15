@@ -19,13 +19,12 @@ pipeline {
                 sh 'echo Testing...'
             }
         }
-
         stage('Deploy') {
             steps {
                 sh '''
-                sudo cp -r * /var/www/html/
+                cp -r * /var/www/html/
                 '''
-            }
-        }
+    }
+}
     }
 }
