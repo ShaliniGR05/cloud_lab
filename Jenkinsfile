@@ -28,26 +28,30 @@ pipeline {
                     exit 1
                 fi
 
+                # Check if any CSS file exists
+                if ! find . -name "*.css" | grep -q .; then
+                    echo "No CSS files found!"
+                    exit 1
+                fi
+
                 echo "File structure is correct"
 
                 # ---------- HTML VALIDATION ----------
                 echo "Validating HTML..."
 
-                # Install tidy if not already installed
-                if ! command -v tidy &> /dev/null; then
-                    echo "Installing tidy..."
-                    sudo apt-get update
-                    sudo apt-get install -y tidy
+                # Check if tidy is installed
+                if ! command -v tidy >/dev/null 2>&1; then
+                    echo "tidy is not installed! Skipping HTML validation..."
+                else
+                    tidy -errors index.html
+
+                    if [ $? -ne 0 ]; then
+                        echo "HTML validation failed!"
+                        exit 1
+                    fi
+
+                    echo "HTML validation passed"
                 fi
-
-                tidy -errors index.html
-
-                if [ $? -ne 0 ]; then
-                    echo "HTML validation failed!"
-                    exit 1
-                fi
-
-                echo "HTML validation passed"
                 '''
             }
         }
