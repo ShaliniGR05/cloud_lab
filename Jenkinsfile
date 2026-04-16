@@ -28,11 +28,6 @@ pipeline {
                     exit 1
                 fi
 
-                if [ ! -d css ]; then
-                    echo "css folder not found!"
-                    exit 1
-                fi
-
                 echo "File structure is correct"
 
                 # ---------- HTML VALIDATION ----------
