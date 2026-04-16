@@ -1,12 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
+    background: #f5f7fb;
+    color: #333;
 }
 
 .container {
@@ -17,13 +21,18 @@ body {
 
 /* Header */
 header {
-    background: #111;
-    color: #fff;
+    background: white;
     padding: 15px 0;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1000;
 }
 
 .logo {
     float: left;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 nav {
@@ -36,12 +45,18 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin-left: 20px;
+    margin-left: 25px;
 }
 
 nav ul li a {
-    color: #fff;
     text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+nav ul li a:hover {
+    color: #0077ff;
 }
 
 header::after {
@@ -52,49 +67,77 @@ header::after {
 
 /* Hero */
 .hero {
-    background: #f4f4f4;
     text-align: center;
-    padding: 80px 0;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #0077ff, #00c6ff);
+    color: white;
+}
+
+.hero h2 {
+    font-size: 40px;
 }
 
 .hero span {
-    color: #0077ff;
+    font-weight: 600;
+}
+
+.hero p {
+    margin-top: 10px;
+    font-size: 18px;
 }
 
 .btn {
     display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background: #0077ff;
-    color: white;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background: white;
+    color: #0077ff;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #f1f1f1;
 }
 
 /* Sections */
 .section {
-    padding: 60px 0;
+    padding: 70px 0;
     text-align: center;
 }
 
+.section h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
 .light {
-    background: #f9f9f9;
+    background: white;
 }
 
 /* Cards */
 .cards {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
-    margin-top: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
 }
 
 .card {
     background: white;
-    padding: 20px;
-    width: 250px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    border-radius: 5px;
+    padding: 25px;
+    width: 260px;
+    border-radius: 10px;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 
 /* Skills */
@@ -105,11 +148,18 @@ header::after {
 
 .skills li {
     display: inline-block;
-    margin: 10px;
-    padding: 10px 15px;
+    margin: 8px;
+    padding: 10px 18px;
     background: #0077ff;
     color: white;
-    border-radius: 20px;
+    border-radius: 25px;
+    font-size: 14px;
+}
+
+/* Contact */
+#contact a {
+    color: #0077ff;
+    text-decoration: none;
 }
 
 /* Footer */
@@ -117,17 +167,12 @@ footer {
     background: #111;
     color: white;
     text-align: center;
-    padding: 15px 0;
-    margin-top: 30px;
+    padding: 20px 0;
+    margin-top: 40px;
 }
 
 /* Responsive */
 @media(max-width: 768px) {
-    .cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
     nav {
         float: none;
         text-align: center;
@@ -137,5 +182,10 @@ footer {
     .logo {
         float: none;
         text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .hero h2 {
+        font-size: 28px;
     }
 }
