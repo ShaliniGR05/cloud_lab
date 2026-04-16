@@ -20,7 +20,6 @@ pipeline {
                 sh '''
                 echo "Running Tests..."
 
-                # ---------- FILE CHECK ----------
                 echo "Checking required files..."
 
                 if [ ! -f index.html ]; then
@@ -36,7 +35,6 @@ pipeline {
 
                 echo "File structure is correct"
 
-                # ---------- HTML VALIDATION ----------
                 echo "Validating HTML..."
 
                 # Check if tidy is installed
