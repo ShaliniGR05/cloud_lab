@@ -45,7 +45,7 @@ pipeline {
 
                     if [ $? -ne 0 ]; then
                         echo "HTML validation failed!"
-                        exit 1
+                        exit 1                                   
                     fi
 
                     echo "HTML validation passed"
